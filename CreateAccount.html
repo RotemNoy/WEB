@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+    <meta charset="UTF-8">
+    <title>create account</title>
+    <link rel="stylesheet" href="allPages.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Sigmar&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Zeyada" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Handlee" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Exo 2" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing Script" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Indie Flower" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bree Serif" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Amatic SC" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Courgette" rel="stylesheet">
+
+
+    <head>            
+        <script src="allScripts.js"></script>
+    </head>
+  
+    <body onload="CreateNavBar()">
+
+        <div class="Get_option">
+            <form novalidate onsubmit="return validateSIGNUPForm()">
+
+                <label for="id">ID:</label>
+                <input type="text" id="id" name="id">
+                <span class="error_msg" id="err_id"></span>
+                <br />
+
+                <label for="name">FULL NAME:</label>
+                <input type="text" id="name" name="name">
+                <span class="error_msg" id="err_name"></span>
+                <br />
+
+                <label for="email">EMAIL:</label>
+                <input type="email" id="email" name="email">
+                <span class="error_msg" id="err_email"></span>
+                <br />
+
+                <label for="birthdate">DATE OF BIRTH:</label>
+                <input type="date" name="birthdate" id="birthdate" max="2013-01-01">
+                <span class="error_msg" id="err_birthdate"></span>
+                <br />
+
+                <label for="phone">PHONE NUMBER:</label>
+                <input type="tel" id="phone" name="phone">
+                <span class="error_msg" id="err_phone"></span>
+
+                <button type="submit" class="allButtons"> SUBMIT</button>
+
+            </form>
+        </div>
+                
+            
+    </body>
+    </html>

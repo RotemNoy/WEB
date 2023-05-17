@@ -1,0 +1,404 @@
+/* CSS styles go here */
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.nav_bar {
+    top: 0;
+    left: 0;
+    width: 100%;
+    position: relative; /*E.N - was absolute*/
+    background-color: rgb(255, 255, 255);
+    opacity: 70%;
+}
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    /*display: inline-block;*/
+    height: 105px;
+  }
+
+  li {
+    
+    display: inline;
+    float: left;
+    display: block;
+    padding: 20px 8px;
+    /*background-color: #000000;*/
+    border-left: 25px black;    
+  }
+
+  li.rightli {
+    float: right;
+    margin-right: 40PX;
+  }
+
+  .Welcome_sentence2{
+    font-size: 27px;
+    margin-top: 27px ;
+    letter-spacing: 0.4em;
+    font-family: 'Exo 2';
+    color: rgb(28, 49, 49);
+    text-align: center;
+    position: absolute;
+    top: 17%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.Main_sentence2{
+    font-size: 20px;
+    font-style: oblique;
+    margin: 20px;
+    margin-bottom: 30px;
+    letter-spacing: 0.2em;
+    font-family: 'Exo 2', cursive;
+    color: rgb(34, 66, 61);
+    text-align: center;
+    position: absolute;
+    top: 24%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.Upper_sentence{
+    font-size: 15px;
+    font-style:unset ;
+}
+
+
+
+
+
+.Second_sentence2{
+    font-size: 17px;
+    font-style: oblique;
+    display:inline-flex;
+    text-align: center;
+    width: 25%;
+    margin-left: 30px;
+    margin-top: 10px ;
+    font-family:"Courier", monospace;
+    text-shadow:1px 1px 2px black, 0 0 1em rgb(255, 255, 255), 0 0 0.2em rgb(255, 255, 255);
+    color: rgb(34, 59, 59);
+    padding: 30px;
+}
+
+
+
+
+
+
+
+
+
+body {
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+
+    /*I wad had this here*/
+    background-image: url(pics/waves.jpg);
+    background-repeat: no-repeat;
+    background-position: center; 
+    background-size: cover;
+}
+
+a {
+    color: rgb(25, 43, 53);
+    font-family: 'Handlee', cursive;
+}
+
+
+
+
+
+table{
+    margin-top: 120px;
+    text-align: center;
+    font-family: 'Courier New', Courier, monospace;
+    border: 1px solid;
+    margin-left: auto;
+    margin-right: auto;
+
+}
+
+td{
+    padding: 0.05em;
+    margin: 10px;
+    font-size: 24px;
+    color: rgb(10, 15, 15);
+    border: 1px solid;
+
+}
+
+th{
+    color: rgb(62, 102, 102);
+    font-size: 27px;
+    letter-spacing: 0.2em;
+    border: 1px solid;
+    
+}
+
+
+.Get_option2{
+
+    position: relative; /*E.N. added*/
+    margin-left: 50px;
+    margin: 17px;
+    padding: 30px;
+    text-align: center;
+    font-family: "Gideon Roman", monospace;
+    font-size: 27px;
+     color: rgb(91, 126, 126);
+    font-weight: bold;
+    box-sizing: border-box;
+    opacity: 90%;
+    border:lightslategray;
+    text-align: center;
+    border-radius: 4%;
+    font-weight: bold;
+    resize: vertical;
+    margin-top: 80px;
+
+}
+
+
+
+
+
+
+label{
+   
+    margin-left: 30%;
+    padding: 17px;
+    width: 20%;
+    min-width: 150;
+    float: left;
+    text-align: left;
+
+ 
+ }
+
+ input{
+
+    margin: 10px;
+    padding: 17px 10px;
+    opacity: 54%;
+    width: 30%;
+    min-width: 150;
+    height: 5%;
+    border: 3px solid #555;
+    display: block;
+ } 
+
+
+
+/*
+header{
+    color: rgb(255, 255, 255);
+}
+*/
+/*
+h1{
+    float: center;
+    font-size: 30px;
+    font-style: oblique;
+    margin-top: 25px ;
+    font-family:'Times New Roman', Times, serif;
+    text-shadow:1px 1px 2px black, 0 0 1em rgb(255, 255, 255), 0 0 0.2em rgb(255, 255, 255);
+    color: rgb(181, 254, 254);
+    text-align: center;
+}
+*/
+/*
+h2{
+float: center;
+font-size: 80px;
+font-style: oblique;
+margin-top: 30px ;
+font-family:'Times New Roman', Times, serif;
+text-shadow:1px 1px 2px black, 0 0 1em rgb(0, 0, 0), 0 0 0.2em rgb(255, 255, 255);;
+color: rgb(133, 203, 203);
+text-align: center;
+}
+*/
+
+
+
+/*
+form{  
+    text-align: center;
+    margin: 17px;
+    padding: 30px;
+    text-align: center;
+ }
+ */
+ 
+ img{
+    margin-right: 30px;   /* Horizontal Space */
+    margin-left: 120px;
+    margin-bottom: 30px;  /* Vertical Space */
+}
+
+button {
+    font-size: 15px;
+    background-color: rgb(255, 255, 255);
+    opacity: 65%;
+    color: rgb(109, 106, 106);
+    padding: 10px 15px;
+    border: none;
+    text-align: center; 
+    border-radius: 20%;
+    font-weight: bold; 
+    text-shadow:1px 1px 2px rgb(146, 196, 186), 0 0 1em rgb(217, 215, 215), 0 0 0.2em rgb(157, 244, 232); ; 
+    display: inline-block;
+    margin: 0% 5%;
+    width: 10%;
+    letter-spacing: 0.2em;
+
+  }
+
+
+  
+button1{
+
+    background-color: rgb(255, 255, 255);
+    opacity: 65%;
+    color: rgb(109, 106, 106);
+    padding: 10px 15px;
+    border: none;
+    text-align: center;
+    /*margin:auto;*/
+    /*position: 50%;*/
+    display:flex;
+    border-radius: 20%;
+    margin-top: 10px;
+    margin-bottom: 15px;
+    font-weight: bold; 
+/*    display: inline-block;*/
+/*margin-left: 160px;*/
+    position:auto;
+}
+
+.Buttons_welcome {
+    /*margin: 0% 20%;*/
+    text-align: center;
+}
+
+
+
+
+
+.welcome_video{
+    padding: 0px;
+    margin: 0px;
+    opacity: 70%;
+    position: relative;   
+  }
+
+  .allButtons{
+    text-align: center;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    
+}
+
+  
+  h5{
+    margin-left: 240px;
+    margin-bottom: 30px;
+    font-size: 20px;
+    font-style: oblique;
+    display: inline-block;
+    Font-family:'Times New Roman', Times, serif;
+    text-shadow:1px 1px 2px black, 0 0 1em rgb(0, 0, 0), 0 0 0.2em rgb(255, 255, 255);;
+    color: rgb(133, 203, 203);
+    text-align: center;
+  }
+
+
+  button:hover{
+    color:  rgb(0, 0, 0);
+}
+
+@media (max-width: 700px) {
+    #main-block, #sidebar, .block  {
+        width: 100%;
+        float: none;
+    }
+
+    .nav_bar.Upper_sentence {
+        display: none;
+    }
+/*For the welcome page*/
+    .Welcome_sentence{
+        font-size: 17px;
+        margin-top: 17px ;
+        top: 37%;
+    }
+    .Main_sentence{
+        font-size: 10px;
+        margin: 10px;
+        top: 57%;
+    }
+/*For all the rest of the pages*/
+    .Welcome_sentence2{
+        font-size: 10px;
+        margin-top: 0px ;
+        top: 28%;
+        text-align: center;
+
+    }
+    .Main_sentence2{
+        font-size: 10px;
+        margin: 10px;
+        top: 30%;
+
+    }
+
+/* Table for the select group*/
+    table{
+        margin-top: 60px ;
+        text-align: center;
+        font-family: 'Courier New', Courier, monospace;
+        border: 1px solid;
+        margin-left: auto;
+        margin-right: auto;
+    
+    }
+    
+    td{
+        padding: 0.025em;
+        margin: 5px;
+        font-size: 12px;
+        color: rgb(10, 15, 15);
+        border: 1px solid;
+    
+    }
+    
+    th{
+        color: rgb(62, 102, 102);
+        font-size: 27px;
+        letter-spacing: 0.2em;
+        border: 1px solid;
+        
+    }
+
+    .Get_option{
+        font-size: 17px;
+        margin-top: 40px;
+    }
+
+    .allButtons{
+        size: 10px;
+        font-size: 5px;
+    }
+    
+    button{
+        font-size: 10px;
+    }
+}

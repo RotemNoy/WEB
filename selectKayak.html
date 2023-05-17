@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+    <meta charset="UTF-8">
+    <title>select kayak page</title>
+    <link rel="stylesheet" type="text/css" href="allPages.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Sigmar&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Zeyada" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Handlee" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Exo 2" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing Script" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Indie Flower" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bree Serif" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Amatic SC" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Courgette" rel="stylesheet">
+
+
+    <head>            
+      <script src="allScripts.js"></script>
+    </head>
+
+    <body onload="CreateNavBar()">
+
+      <table>
+        <tr>
+          <th>Kayak</th>
+          <th>Type</th>
+        </tr>
+        <tr onclick="selectRow(this)">
+          <td>
+            <img class="img2" src="kayak1.png" alt="Image 1">
+          </td>
+          <td>SOT</td>
+        </tr>
+        <tr onclick="selectRow(this)">
+          <td>
+            <img  class="img2" src="kayak2.png" alt="Image 2">
+          </td>
+          <td>SOB</td>
+        </tr>
+        <tr onclick="selectRow(this)">
+          <td>
+            <img  class="img2" src="kayak3.png" alt="Image 3">
+          </td>
+          <td>OCEANUS</td>
+        </tr>
+        <tr onclick="selectRow(this)">
+          <td>
+            <img  class="img2" src="kayak4.png" alt="Image 3">
+          </td>
+          <td>ANG</td>
+        </tr>
+    </table>
+
+
+  <div class="allButtons">
+
+    <button id="SelectButton" disabled onclick="SelectKayakButton()"> Select </button>
+
+  </div>
+
+</body>
+
+
+
+<script>
+
+  const rows = document.getElementsByTagName("tr");
+  var selectedRow;
+
+  function selectRow(row) {
+    // Remove selected class from all rows  
+    for (let i = 0; i < rows.length; i++) {
+      rows[i].classList.remove("selected");
+    }
+    
+    // Add selected class to the clicked row
+    row.classList.add("selected");
+    selectedRow = row.rowIndex;
+
+    document.getElementById("SelectButton").disabled = false;
+  }
+
+  function SelectButton() {
+
+    window.location.href = 'selectDate.html' ;
+  }
+
+</script>
+
+
+</html>
