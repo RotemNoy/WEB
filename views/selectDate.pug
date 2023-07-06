@@ -1,8 +1,8 @@
-extends template 
+extends template
+
 block content
   .Get_option
     form(novalidate, action="/processDate", method="POST")
-        label(for="selectedDate") Select a Date:
-        input(type="date", id="selectedDate", name="selectedDate")
-        button(type="submit", class="allButtons") Submit
-
+      label(for="selectedDate") Select a Date:
+      input(type="date", id="selectedDate", name="selectedDate" min=new Date().toISOString().split('T')[0])
+      button(type="submit", class="allButtons") Submit
