@@ -42,32 +42,8 @@ function selectRow(row) {
 
     document.getElementById('SelectButton').disabled = false;
 
-    //var id = document.getElementById('myTable').rows[selectedRow].cells[0].textContent;
-    //document.cookie = 'selectedGroup=' + id;
-
     return selectedRow;
 }
-
-
-/*function selectRow_Kayak(row) {
-  // Remove the 'selected' class from all rows
-  const rows = document.querySelectorAll('#myTable tr');
-  var selectedRow;
-  rows.forEach(row => {
-      row.classList.remove('selected');
-  });
-
-  // Add the 'selected' class to the clicked row
-  row.classList.add('selected');
-  selectedRow = row.rowIndex;
-
-  document.getElementById('SelectButton').disabled = false;
-  var id = document.getElementById('myTable').rows[selectedRow].cells[0].textContent;
-  document.cookie = 'selectedKayak=' + id;
-
-  return selectedRow;
-}*/
-
 
 function isValidID(value) {
   var digitPattern = /^\d{9}$/;
@@ -100,6 +76,14 @@ function isValidFullName(fullName) {
   }
   return true; // Valid full name format
 }
+
+function isValidPassword(password) {
+  if (password == '') {
+    return false; // Invalid full name format
+  }
+  return true; // Valid full name format
+}
+
 
 
 //module.exports={getCookie}

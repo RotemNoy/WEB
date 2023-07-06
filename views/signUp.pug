@@ -115,6 +115,16 @@ block content
         error.classList.add('hidden');
       }
 
+      // PASSWORD CHECK
+      input = document.getElementById('password');
+      error = document.getElementById('err_password');
+      if (!isValidPassword(input.value)) {
+        error.classList.remove('hidden');
+        retVal = false;
+      } else {
+        error.classList.add('hidden');
+      }
+
       return retVal;
     }
   

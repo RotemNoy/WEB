@@ -1,0 +1,29 @@
+hello from group 20(:
+Requirments for our Web Project:
+
+Modules used : MySql, node.js, express, path, body - parser, cookie-parser
+view engine - pug
+Softwares : VScode, github desktop
+
+DB CREATE QUERIES:
+
+CREATE TABLE IF NOT EXISTS `Users` (email varchar(255) NOT NULL PRIMARY KEY,
+id int(11) NOT NULL, name varchar(255) NOT NULL, phone long NOT NULL,
+birthdate date NOT NULL, password varchar(255) NOT NULL)
+
+CREATE TABLE IF NOT EXISTS `Lessons` (ID int NOT NULL PRIMARY KEY AUTO_INCREMENT,
+difficulty varchar(255) NOT NULL, day varchar(255) NOT NULL, time varchar(255) NOT NULL)
+
+CREATE TABLE IF NOT EXISTS `Lessons_Selected` (ID int NOT NULL PRIMARY KEY AUTO_INCREMENT,
+user_email varchar(255), Lesson_id int, FOREIGN KEY (user_email) REFERENCES Users(email),
+FOREIGN KEY (Lesson_id) REFERENCES Lessons(ID))
+
+CREATE TABLE IF NOT EXISTS `Kayaks` (ID int NOT NULL PRIMARY KEY AUTO_INCREMENT,
+kayak varchar(255), vendor varchar(255), model varchar(255), weight float)
+
+CREATE TABLE IF NOT EXISTS `Kayaks_Selected` (ID int NOT NULL PRIMARY KEY AUTO_INCREMENT,
+ date date, user_email varchar(255), kayak_id int, FOREIGN KEY (user_email) REFERENCES Users(email),
+ FOREIGN KEY (kayak_id) REFERENCES Kayaks(ID))
+ 
+ CREATE TABLE IF NOT EXISTS `Contact_Us_Requests` (ID int NOT NULL PRIMARY KEY AUTO_INCREMENT,
+ name varchar(255) NOT NULL, email varchar(255) NOT NULL, phone long, problem varchar(1500))
