@@ -1,0 +1,18 @@
+extends template
+
+block content
+  if errorMessage
+    .error-message
+      | #{errorMessage}
+  
+  .Get_option
+    form(novalidate, action="/ValidateUser", method="POST") 
+      label(for="email") EMAIL:
+      input(type="email", id="email_logging", name="email_logging", placeholder="Your email....")
+      br
+
+      label(for="password") PASSWORD:
+      input(type="password", id="password_email_logging", name="password_email_logging", placeholder="Your Password....")
+      br
+
+      button(type="submit", class="allButtons") SUBMIT

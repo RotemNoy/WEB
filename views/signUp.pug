@@ -1,0 +1,120 @@
+extends template
+
+block content
+
+  if errorMessage
+    .error-message
+      | #{errorMessage}
+      
+  .Get_option
+    form(novalidate, action="/CreateNewCustomer", method="POST") 
+      .col-md-6
+        label(for="id") ID:
+        input(type="text", id="id", name="id")
+        span.error-msg#err_id.hidden Incorrect ID format.
+        br
+      .col-md-6
+        label(for="name") FULL NAME:
+        input(type="text", id="name", name="name")
+        span.error-msg#err_name.hidden Invalid name format.
+        br
+      .col-md-6
+        label(for="email") EMAIL:
+        input(type="email", id="email", name="email")
+        span.error-msg#err_email.hidden Invalid email format.
+        br
+      .col-md-6
+        label(for="birthdate") DATE OF BIRTH:
+        input(type="date", name="birthdate", id="birthdate", max="2013-01-01")
+        span.error-msg#err_birthdate.hidden Invalid date format.
+        br
+      .col-md-6
+        label(for="phone") PHONE NUMBER:
+        input(type="tel", id="phone", name="phone")
+        span.error-msg#err_phone.hidden Invalid phone number format.
+        br
+      .col-md-6
+        label(for="password") Password:
+        input(type="password", id="password", name="password")
+        span.error-msg#err_password.hidden Invalid password format.
+        br        
+      .col-lg-12
+        .col-lg-6
+          button(id = "signInB", type="submit", class="allButtons") Sign up
+        .col-lg-6
+          button(type="button", class="allButtons", onclick="location.href='/'") Cancel
+
+
+  script. 
+    document.addEventListener('DOMContentLoaded', function() {
+        var form = document.querySelector('form');
+        form.addEventListener('submit', function(event) {
+          //Prevent form submission
+          event.preventDefault();
+          //document.getElementById('signInB').disabled = true;
+          // Perform form validation
+          if (validateForm()) {
+            // If form is valid, submit the form
+            //document.getElementById('signInB').disabled = false;
+            form.submit();
+          }
+        });
+    });
+
+    function validateForm() {
+
+      let retVal = true;
+  
+      // ID CHECK
+      let input = document.getElementById('id');
+      let error = document.getElementById('err_id');
+      if (!isValidID(input.value)) {
+        error.classList.remove('hidden');
+        retVal = false;
+      } else {
+        error.classList.add('hidden');
+      }
+  
+      // EMAIL CHECK
+      input = document.getElementById('email');
+      error = document.getElementById('err_email');
+      if (!isValidEmail(input.value)) {
+        error.classList.remove('hidden');
+        retVal = false;
+      } else {
+        error.classList.add('hidden');
+      }
+  
+      // PHONE CHECK
+      input = document.getElementById('phone');
+      error = document.getElementById('err_phone');
+      if (!isValidPhoneNumber(input.value)) {
+        error.classList.remove('hidden');
+        retVal = false;
+      } else {
+        error.classList.add('hidden');
+      }
+  
+      // NAME CHECK
+      input = document.getElementById('name');
+      error = document.getElementById('err_name');
+      if (!isValidFullName(input.value)) {
+        error.classList.remove('hidden');
+        retVal = false;
+      } else {
+        error.classList.add('hidden');
+      }
+
+      // BDATE CHECK
+      input = document.getElementById('birthdate');
+      error = document.getElementById('err_birthdate');
+      if (input.value == '') {
+        error.classList.remove('hidden');
+        retVal = false;
+      } else {
+        error.classList.add('hidden');
+      }
+
+      return retVal;
+    }
+  

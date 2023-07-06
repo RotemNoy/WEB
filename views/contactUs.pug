@@ -1,0 +1,99 @@
+extends template 
+block content
+
+    section.contact-form
+        h1#contactUs CONTACT US
+        p.contactus WE ARE HAPPY THAT YOU HAVE CHOSEN TO CONTACT WITH US
+        br
+        p.contactus FILL YOUR PERSONAL DATA HERE AND WE WILL CONTACT YOU AS SOON AS POSSIBLE!
+
+    div.Get_option
+        form(novalidate, action="/ContactUs", method="POST")
+            .col-md-6
+                label(for="namec") FULL NAME:
+                input(type="text", id="namec", name="namec")
+                span.error-msg#err_namec.hidden Invalid name format.
+                br
+            .col-md-6
+                label(for="emailc") EMAIL:
+                input(type="email", id="emailc", name="emailc")
+                span.error-msg#err_emailc.hidden Invalid email format.
+                br
+            .col-md-6
+                label(for="phonec") PHONE NUMBER:
+                input(type="tel", id="phonec", name="phonec")
+                span.error-msg#err_phonec.hidden Invalid phone number format.
+                br
+            .col-md-6
+                label(for="messagec") Message:
+                input(type="text", id="messagec", name="messagec")
+                span.error-msg#err_messagec.hidden Please write your message
+                
+            .col-lg-12
+                .col-lg-6
+                    button(id = "signInB", type="submit", class="allButtons") SUBMIT
+                
+                .col-lg-6
+                    button(type='button', class="allButtons", onclick="location.href='/'") Cancel
+
+    script. 
+        document.addEventListener('DOMContentLoaded', function() {
+            var form = document.querySelector('form');
+            form.addEventListener('submit', function(event) {
+                //Prevent form submission
+                event.preventDefault();
+                //document.getElementById('signInB').disabled = true;
+                // Perform form validation
+                if (validateForm()) {
+                    // If form is valid, submit the form
+                    document.getElementById('signInB').disabled = false;
+                    form.submit();
+                }
+            });
+        });
+
+        function validateForm() {
+                        
+            let retVal = true;
+            // NAME CHECK
+            let input = document.getElementById('namec');
+            let error = document.getElementById('err_namec');
+            if (!isValidFullName(input.value)) {
+                error.classList.remove('hidden');
+                retVal = false;
+            } else {
+                error.classList.add('hidden');
+            }
+
+            // EMAIL CHECK
+            input = document.getElementById('emailc');
+            error = document.getElementById('err_emailc');
+            if (!isValidEmail(input.value)) {
+                error.classList.remove('hidden');
+                retVal = false;
+            } else {
+                error.classList.add('hidden');
+            }
+
+            // PHONE CHECK
+            input = document.getElementById('phonec');
+            error = document.getElementById('err_phonec');
+            if (!isValidPhoneNumber(input.value)) {
+                error.classList.remove('hidden');
+                retVal = false;
+            } else {
+                error.classList.add('hidden');
+            }
+
+            // MSG CHECK
+            input = document.getElementById('messagec');
+            error = document.getElementById('err_messagec');
+            if (input.value === '') {
+                error.classList.remove('hidden');
+                retVal = false;
+            } else {
+                error.classList.add('hidden');
+            }
+            
+            return retVal;
+        }

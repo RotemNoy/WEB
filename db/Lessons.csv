@@ -1,0 +1,22 @@
+difficulty,day,time,,
+hard,Sun,06:30 - 08:00,0.506429608,Medium
+Medium,Sun,08:00 - 10:00,0.124353044, Easy
+Medium,Mon,06:30 - 08:00,0.714513469,hard
+Medium,Mon,08:00 - 10:00,0.472975996,Medium
+ Easy,Tue,06:30 - 08:00,0.935479541,hard
+Medium,Tue,08:00 - 10:00,0.212028457, Easy
+ Easy,Wed,06:30 - 08:00,0.355915388,Medium
+Medium,Wed,08:00 - 10:00,0.206940979, Easy
+hard,Thu,06:30 - 08:00,0.548198576,Medium
+hard,Thu,08:00 - 10:00,0.179836859, Easy
+Medium,Fri,06:30 - 08:00,0.576220235,Medium
+Medium,Fri,08:00 - 10:00,0.754250202,hard
+ Easy,Sat,06:30 - 08:00,0.34834904,Medium
+Medium,Sat,08:00 - 10:00,0.748684688,hard
+Medium,Sun,16:30 - 18:00,0.770485973,hard
+ Easy,Mon,16:30 - 18:01,0.220361134, Easy
+hard,Tue,16:30 - 18:02,0.084716053, Easy
+ Easy,Wed,16:30 - 18:03,0.16882672, Easy
+Medium,Thu,16:30 - 18:04,0.786325541,hard
+hard,Fri,16:30 - 18:05,0.106989942, Easy
+hard,Sat,16:30 - 18:06,0.944797731,hard

@@ -1,0 +1,38 @@
+extends template
+
+block content
+
+    h1.lessons Select a Group
+
+    table(id='dataTable')
+        tr
+            th(style="display: none;") ID
+            th DIFFICULTY
+            th DAY
+            th TIME
+            th STATUS
+
+        each group in groups
+            tr(class=group.registered ? 'registered-group' : '', onclick=group.registered ? '' : 'selectedRow=selectRow(this)')
+                td(style="display: none;")=group.ID
+                td=group.difficulty
+                td=group.day
+                td=group.time
+                td
+                    if group.registered
+                        span.registered-label Registered
+                    else 
+                         span available
+
+    div.allButtons
+        button#SelectButton(disabled, onclick="onSelectClicked(this.parentNode.parentNode)") Select
+
+    script.
+        var selectedRow = -1; // Initialize selectedRow outside of any function
+
+        function onSelectClicked(rowElement) {
+            var groupID = document.getElementById('dataTable').rows[selectedRow].cells[0].textContent;
+            document.cookie = 'selectedGroup=' + groupID;
+
+            window.location.href = '/acceptanceGroup';
+        }

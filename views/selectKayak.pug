@@ -1,0 +1,54 @@
+extends template 
+block content
+
+    input(type="text", id="inputFilter", placeholder="Filter by Vendor...", value="")
+
+    table(id='dataTable')
+        tr
+            th(style="display: none;") ID
+            th Kayak
+            th Vendor
+            th Model
+            th Weight
+        
+        each kayak in kayaks
+            tr(onclick='selectedRow=selectRow(this)')
+                td(style="display: none;")=kayak.ID
+                td=kayak.kayak
+                td=kayak.vendor
+                td=kayak.model
+                td=kayak.weight
+
+    div.allButtons
+        button#SelectButton(disabled, onclick="onSelectClicked(this.parentNode.parentNode)") Select
+
+ 
+    script.
+
+        var selectedRow = -1; // Initialize selectedRow outside of any function
+
+        function onSelectClicked(rowIndex) {
+            var kayakID = document.getElementById('dataTable').rows[selectedRow].cells[0].textContent;
+            document.cookie = 'selectedKayak=' + kayakID;
+
+            window.location.href = '/acceptanceKayak';
+        }
+
+        var input = document.getElementById("inputFilter");        
+        input.addEventListener("input", function() {
+            var filter = input.value.toLowerCase();
+            var table = document.getElementById("dataTable");
+            var rows = table.getElementsByTagName("tr");
+            for (var i = 1; i < rows.length; i++) {
+                var row = rows[i];
+                var cells = row.getElementsByTagName("td");
+                var visible = true;
+                var cell = cells[2];
+                if (cell.innerHTML.toLowerCase().indexOf(filter) === -1) {
+                    visible = false;
+                }
+                row.classList.remove("selected");
+                row.style.display = visible ? "" : "none";
+            }
+            document.getElementById("SelectButton").disabled = true;
+        });

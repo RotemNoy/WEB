@@ -1,0 +1,166 @@
+extends template 
+block content
+    h1.lessons my profile
+
+    .Get_option
+        form(action="/updateDetails", method="POST")
+            .clearfix
+                .col-md-6
+                    label() ID:
+                    label() #{userProfile.id}
+                    //input(type="text", name="id", value=userProfile.id, readonly)
+                    br
+                .col-md-6
+                    label() EMAIL:
+                    label() #{userProfile.email}
+                    //input(type="text", name="email", value=userProfile.email, readonly)
+                    br
+                .col-md-6
+                    label(for="name") FULL NAME:
+                    input(type="text", name="name", id="name", value=userProfile.name)
+                    span.error-msg#err_name.hidden Invalid name format.
+                    br
+                .col-md-6
+                    label(for="birthdate") DATE OF BIRTH:
+                    input(type="date", name="birthdate", id="birthdate", value=userProfile.birthdate ? userProfile.birthdate.toISOString().slice(0, 10) : '')
+                    span.error-msg#err_birthdate.hidden Invalid date format.
+                    br
+                .col-md-6
+                    label(for="phone") PHONE NUMBER:
+                    input(type="text", name="phone", id="phone", value=userProfile.phone)
+                    span.error-msg#err_phone.hidden Invalid phone number format.
+                    br
+                .col-md-6
+                    label(for="password") PASSWORD:
+                    input(type="text", name="password", id="password", value=userProfile.password)
+                    span.error-msg#err_password.hidden Invalid password format.
+                    br
+                .col-md-2
+                    button(type="submit") Save Changes
+
+        
+    h1.lessons my lessons
+
+    table(id='myTable')
+        tr
+            th(style="display: none;") ID
+            th DIFFICULTY
+            th DAY
+            th TIME
+            th
+
+        each group in userGroups
+            tr()
+                td(style="display: none;")=group.ID
+                td=group.difficulty
+                td=group.day
+                td=group.time
+                td
+                    button(type='button', onclick='UnregGroup(this.parentNode.parentNode)') Unsubscribe
+     
+    h1.lessons my rented kayak
+
+    table(id='myTable')
+        tr
+            th(style="display: none;") ID
+            th Date
+            th Kayak
+            th Vendor
+            th Model
+            th Weight
+        
+        each kayak in userKayaks
+            tr()
+                td(style="display: none;")=kayak.ID
+                td=kayak.formatted_date
+                td=kayak.kayak
+                td=kayak.vendor
+                td=kayak.model
+                td=kayak.weight
+                td
+                    button(type='button', onclick='UnregKayak(this.parentNode.parentNode)') Cancel
+
+    script.
+        function UnregGroup(rowElement) {
+            
+            var id = rowElement.cells[0].textContent;
+
+            fetch('/UnregisterFromLesson', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ id:id })
+            })
+            .then(response => {
+                // Handle the response
+                location.href = location.href
+            });        
+        }
+
+        function UnregKayak(rowElement) {
+            
+            var id = rowElement.cells[0].textContent;
+
+            fetch('/UnregisterKayak', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ id:id })
+            })
+            .then(response => {
+                // Handle the response
+                location.href = location.href
+            });            
+        }
+    
+        document.addEventListener('DOMContentLoaded', function() {
+            var form = document.querySelector('form');
+            form.addEventListener('submit', function(event) {
+                //Prevent form submission
+                event.preventDefault();
+                // Perform form validation
+                if (validateForm()) {
+                    // If form is valid, submit the form
+                    form.submit();
+                }
+            });
+        });
+
+        function validateForm() {
+
+        let retVal = true;
+    
+        // PHONE CHECK
+        let input = document.getElementById('phone');
+        let error = document.getElementById('err_phone');
+        if (!isValidPhoneNumber(input.value)) {
+            error.classList.remove('hidden');
+            retVal = false;
+        } else {
+            error.classList.add('hidden');
+        }
+    
+        // NAME CHECK
+        input = document.getElementById('name');
+        error = document.getElementById('err_name');
+        if (!isValidFullName(input.value)) {
+            error.classList.remove('hidden');
+            retVal = false;
+        } else {
+            error.classList.add('hidden');
+        }
+
+        // BDATE CHECK
+        input = document.getElementById('birthdate');
+        error = document.getElementById('err_birthdate');
+        if (input.value == '') {
+            error.classList.remove('hidden');
+            retVal = false;
+        } else {
+            error.classList.add('hidden');
+        }
+
+        return retVal;
+        }

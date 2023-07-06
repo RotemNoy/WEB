@@ -1,0 +1,71 @@
+doctype html
+html(lang="en")
+    head
+        link(rel="stylesheet", href="allPages.css")
+        script(defer src="../allScripts.js")
+        meta(charset="UTF-8")
+        meta(http-equiv="X-UA-Compatible", content="IE=edge")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        link(rel="preconnect" href="https://fonts.googleapis.com")
+        link(rel="preconnect" href="https://fonts.gstatic.com" crossorigin)
+        link(href="https://fonts.googleapis.com/css2?family=Sigmar&display=swap" rel="stylesheet")
+        link(href="https://fonts.googleapis.com/css2?family=Zeyada" rel="stylesheet")
+        link(href="https://fonts.googleapis.com/css2?family=Handlee" rel="stylesheet")
+        link(href="https://fonts.googleapis.com/css2?family=Exo 2" rel="stylesheet")
+        link(href="https://fonts.googleapis.com/css2?family=Dancing Script" rel="stylesheet")
+        link(href="https://fonts.googleapis.com/css2?family=Indie Flower" rel="stylesheet")
+        link(href="https://fonts.googleapis.com/css2?family=Bree Serif" rel="stylesheet")
+        link(href="https://fonts.googleapis.com/css2?family=Amatic SC" rel="stylesheet")
+        link(href="https://fonts.googleapis.com/css2?family=Courgette" rel="stylesheet")
+        title Amigo Surfski
+    
+
+    body
+        div(class="nav_bar") 
+            ul
+                li                    
+                    a(href='/')
+                        img(height='85px', src='pics/amigologo1.png', alt='Amigo')
+                li
+                    a(href='/aboutUs') ABOUT US
+                li
+                    a(href='/contactUs') CONTACT US
+                li(id="selectedDate")
+                    a(href='/selectDate') RENT A KAYAK
+                li(id="selectGroup")
+                    a(href='/selectGroup') REGISTER FOR GROUP
+                li.rightli
+                    a(href='/signIn')#loggingText
+                li.rightli
+                    a(href='/signUp')#loggingText2
+                li.rightli
+                li.rightli#ampm
+                    h3#result
+
+        block content 
+        
+        script.            
+            
+            document.addEventListener('DOMContentLoaded', function() { 
+                var logText = document.getElementById('loggingText');
+                var logText2 = document.getElementById('loggingText2');
+                var greetingElement = document.getElementById('result'); 
+                greetingElement.textContent = GetDayPart();
+                const cookie = getCookie('LogedUserName')
+                if(cookie != null){
+                    const user = JSON.parse(cookie);
+                    logText.textContent = 'SIGN OUT'
+                    logText2.innerHTML = '<img height= "37px" src="../pics/profile.jpg">';
+                    greetingElement.textContent = greetingElement.textContent +' '+ user.name;
+                }
+                else{
+                    logText.textContent = 'SIGN IN'
+                    logText2.textContent = 'SIGN UP'
+                   
+                    document.getElementById('selectedDate').classList.add('hidden'); 
+                    document.getElementById('selectGroup').classList.add('hidden'); 
+                }
+            }) 
+
+                     
+
